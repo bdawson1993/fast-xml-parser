@@ -32,7 +32,8 @@ const defaultOptions = {
     ignoreDeclaration: false,
     ignorePiTags: false,
     transformTagName: false,
-    transformPropertyName : false,
+    transformAttributeName : false,
+    transformPropName : false,
 };
    
 const buildOptions = function(options) {
