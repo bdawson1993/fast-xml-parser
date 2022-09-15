@@ -22,7 +22,6 @@ const defaultOptions = {
     attributeValueProcessor: function(attrName, val) {
       return val;
     },
-    property
     stopNodes: [], //nested tags will not be parsed even for errors
     alwaysCreateTextNode: false,
     isArray: () => false,
