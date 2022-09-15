@@ -83,16 +83,16 @@ function assignAttributes(obj, attrMap, jpath, options){
     const keys = Object.keys(attrMap);
     const len = keys.length; //don't make it inline
     for (let i = 0; i < len; i++) {
-      const atrrName = keys[i];
+      const atrrName = keys[i][0].toLowerCase() + keys[i].slice(1);
+      const lookUp = keys[i];
       if (options.isArray(atrrName, jpath + "." + atrrName, true, true)) {
-        obj[atrrName] = [ attrMap[atrrName] ];
+        obj[atrrName] = [ attrMap[lookUp] ];
       } else {
-        obj[atrrName] = attrMap[atrrName];
+        obj[atrrName] = attrMap[lookUp];
       }
     }
   }
 }
-
 function isLeafTag(obj, options){
   const propCount = Object.keys(obj).length;
   if( propCount === 0 || (propCount === 1 && obj[options.textNodeName]) ) return true;
