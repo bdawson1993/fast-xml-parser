@@ -22,7 +22,7 @@ function compress(arr, options, jPath){
   const compressedObj = {};
   for (let i = 0; i < arr.length; i++) {
     const tagObj = arr[i];
-    const property = propName(tagObj);
+    const property = propName(tagObj, options);
     let newJpath = "";
     if(jPath === undefined) newJpath = property;
     else newJpath = jPath + "." + property;
@@ -70,10 +70,16 @@ function compress(arr, options, jPath){
   return compressedObj;
 }
 
-function propName(obj){
+function propName(obj, options){
   const keys = Object.keys(obj);
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
+
+    if(options.transformPropName){
+      return options.transformPropName(key);
+    }
+
+
     if(key !== ":@") return key;
   }
 }
