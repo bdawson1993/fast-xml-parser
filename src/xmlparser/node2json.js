@@ -83,13 +83,10 @@ function assignAttributes(obj, attrMap, jpath, options){
     const keys = Object.keys(attrMap);
     const len = keys.length; //don't make it inline
     for (let i = 0; i < len; i++) {
-      let atrrName = "";
+      let atrrName = keys[i];
 
       if(options.transformAttributeName){
-        atrrName = options.transformAttributeName(keys[i])
-      }
-      else {
-        atrrName = keys[i][0].toLowerCase() + keys[i].slice(1);
+        atrrName = options.transformAttributeName(keys[i]);
       }
 
       const lookUp = keys[i];
