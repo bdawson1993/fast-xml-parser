@@ -86,7 +86,7 @@ function assignAttributes(obj, attrMap, jpath, options){
       let atrrName = "";
 
       if(options.transformAttributeName){
-        options.transformAttributeName(keys[i])
+        atrrName = options.transformAttributeName(keys[i])
       }
       else {
         atrrName = keys[i][0].toLowerCase() + keys[i].slice(1);
